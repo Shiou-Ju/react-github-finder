@@ -12,6 +12,7 @@ class App extends Component {
     loading: false,
   };
 
+  // search Github users
   searchUsers = async (text) => {
     // sent up from Search.js
     this.setState({ loading: true });
@@ -21,13 +22,27 @@ class App extends Component {
     this.setState({ loading: false, users: res.data.items });
   };
 
+  // clear users from state
+  clearUsers = () => {
+    this.setState({
+      users: [],
+      loading: false,
+    });
+  };
+
   render() {
+    const { users, loading } = this.state;
+
     return (
       <div className="App">
         <Navbar title="Github用戶 搜尋器" icon="fab fa-github" />
         <div className="container">
-          <Search searchUsers={this.searchUsers} />
-          <Users loading={this.state.loading} users={this.state.users} />
+          <Search
+            searchUsers={this.searchUsers}
+            clearUsers={this.clearUsers}
+            showClear={users.length > 0 ? true : false}
+          />
+          <Users loading={loading} users={users} />
         </div>
       </div>
     );
