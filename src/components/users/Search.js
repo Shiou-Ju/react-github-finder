@@ -10,6 +10,7 @@ export class Search extends Component {
     searchUsers: PropTypes.func.isRequired,
     clearUsers: PropTypes.func.isRequired,
     showClear: PropTypes.bool.isRequired,
+    setAlert: PropTypes.func.isRequired,
   };
 
   onChange = (event) =>
@@ -18,8 +19,12 @@ export class Search extends Component {
   // if not using arrow function, you have to bind `this` when invoking submit down there
   onSubmit = (event) => {
     event.preventDefault();
-    this.props.searchUsers(this.state.text);
-    this.setState({ text: "" });
+    if (this.state.text === "") {
+      this.props.setAlert(`請輸入內容`, `light`);
+    } else {
+      this.props.searchUsers(this.state.text);
+      this.setState({ text: "" });
+    }
   };
 
   render() {
