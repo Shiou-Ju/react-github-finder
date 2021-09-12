@@ -2,14 +2,18 @@ import React, { Fragment, Component } from "react";
 import "./App.css";
 
 class App extends Component {
-  foo = () => `bars`;
-
   render() {
     const name = `Bamboo Lin`;
+    const loading = false;
+    const showName = true;
 
     return (
       <div className="App">
-        <h1>hello {this.foo()}</h1>
+        {loading ? (
+          <h4>loading...</h4>
+        ) : (
+          <h1>hello {showName && name}</h1>
+        )}
       </div>
     );
   }
