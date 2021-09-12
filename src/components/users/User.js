@@ -44,7 +44,7 @@ export class User extends Component {
         <Link to="/" className="btn btn-light">
           返回搜尋結果
         </Link>
-        Hireable:{" "}
+        是否正在找工作？{" "}
         {hireable ? (
           <i className="fas fa-check text-success" />
         ) : (
