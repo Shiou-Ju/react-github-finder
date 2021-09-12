@@ -1,13 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Navbar = ({  icon,  title  }) => {
   return (
-    <nav className="bg-primary ">
+    <nav className="bg-primary navbar">
       <h1>
         <i className={icon}></i>
         {title}
       </h1>
+      <ul>
+        <li>
+          <Link to="/">首頁</Link>
+        </li>
+        <li>
+          <Link to="/about">關於</Link>
+        </li>
+      </ul>
     </nav>
   );
 };
