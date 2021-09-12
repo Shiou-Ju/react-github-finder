@@ -1,19 +1,12 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
+import Navbar from "./components/layout/Navbar";
 import "./App.css";
 
 class App extends Component {
   render() {
-    const name = `Bamboo Lin`;
-    const loading = false;
-    const showName = true;
-
     return (
       <div className="App">
-        {loading ? (
-          <h4>loading...</h4>
-        ) : (
-          <h1>hello {showName && name}</h1>
-        )}
+        <Navbar title="Github用戶 搜尋器" icon="fab fa-github" />
       </div>
     );
   }
